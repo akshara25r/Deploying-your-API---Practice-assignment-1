@@ -13,3 +13,20 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
+
+// Load the dotenv package
+require('dotenv').config();
+
+// Access environment variables
+const config = {
+    apiKey: process.env.API_KEY,
+    serverSecret: process.env.SERVER_SECRET,
+    isKalvian: process.env.IS_KALVIAN === 'true',
+};
+
+// Export the config object (Optional)
+module.exports = config;
+
+// Log the variables to test
+console.log("Environment Variables:");
+console.log(config);
